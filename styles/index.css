@@ -11,3 +11,7 @@
     --dark-elem: hsl(209, 23%, 22%);
     --dark-text: hsl(0, 0%, 100%);
 }
+
+* {
+    font-family: 'Nunito Sans', sans-serif;
+}
