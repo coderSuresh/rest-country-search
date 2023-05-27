@@ -522,6 +522,10 @@ video {
   --tw-backdrop-sepia:  ;
 }
 
+.pointer-events-none {
+  pointer-events: none;
+}
+
 .absolute {
   position: absolute;
 }
@@ -570,6 +574,10 @@ video {
   display: grid;
 }
 
+.hidden {
+  display: none;
+}
+
 .w-fit {
   width: -moz-fit-content;
   width: fit-content;
@@ -577,6 +585,30 @@ video {
 
 .w-full {
   width: 100%;
+}
+
+.w-\[100\%-\] {
+  width: 100%-;
+}
+
+.w-\[100\%-1rem\] {
+  width: 100%-1rem;
+}
+
+.w-\[\] {
+  width: ;
+}
+
+.w-\[calc\(100\%-1rem\)\] {
+  width: calc(100% - 1rem);
+}
+
+.w-\[calc\(100\%-1\.5rem\)\] {
+  width: calc(100% - 1.5rem);
+}
+
+.w-\[calc\(100\%-2rem\)\] {
+  width: calc(100% - 2rem);
 }
 
 .cursor-pointer {
