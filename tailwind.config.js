@@ -5,12 +5,10 @@ module.exports = {
     extend: {
       colors: {
         'bg': "var(--bg)",
-        'darkBg': "var(--dark-bg)",
         'text': "var(--text)",
-        'darkText': "var(--dark-text)",
         'inputColor': "var(--input-color)",
         'elem': "var(--elem)",
-        'darkElem': "var(--dark-elem)",
+        'hover': "var(--hover)",
       },
     },
     plugins: [],

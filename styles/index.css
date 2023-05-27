@@ -7,9 +7,14 @@
     --elem: hsl(0, 0%, 100%);
     --text: hsl(200, 15%, 8%);
     --input-color: hsl(0, 0%, 52%);
-    --dark-bg: hsl(207, 26%, 17%);
-    --dark-elem: hsl(209, 23%, 22%);
-    --dark-text: hsl(0, 0%, 100%);
+    --hover: hsl(0, 0%, 95%);
+}
+
+[data-theme="dark"] {
+    --bg: hsl(207, 26%, 17%);
+    --elem: hsl(209, 23%, 22%);
+    --text: hsl(0, 0%, 100%);
+    --hover: hsl(209, 23%, 25%);
 }
 
 * {

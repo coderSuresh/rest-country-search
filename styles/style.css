@@ -578,6 +578,10 @@ video {
   display: none;
 }
 
+.w-\[calc\(100\%-2rem\)\] {
+  width: calc(100% - 2rem);
+}
+
 .w-fit {
   width: -moz-fit-content;
   width: fit-content;
@@ -585,30 +589,6 @@ video {
 
 .w-full {
   width: 100%;
-}
-
-.w-\[100\%-\] {
-  width: 100%-;
-}
-
-.w-\[100\%-1rem\] {
-  width: 100%-1rem;
-}
-
-.w-\[\] {
-  width: ;
-}
-
-.w-\[calc\(100\%-1rem\)\] {
-  width: calc(100% - 1rem);
-}
-
-.w-\[calc\(100\%-1\.5rem\)\] {
-  width: calc(100% - 1.5rem);
-}
-
-.w-\[calc\(100\%-2rem\)\] {
-  width: calc(100% - 2rem);
 }
 
 .cursor-pointer {
@@ -643,6 +623,14 @@ video {
   border-radius: 0.25rem;
 }
 
+.bg-bg {
+  background-color: var(--bg);
+}
+
+.bg-elem {
+  background-color: var(--elem);
+}
+
 .bg-white {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
@@ -673,11 +661,6 @@ video {
   line-height: 1.75rem;
 }
 
-.text-xl {
-  font-size: 1.25rem;
-  line-height: 1.75rem;
-}
-
 .text-xs {
   font-size: 0.75rem;
   line-height: 1rem;
@@ -700,15 +683,13 @@ video {
   color: rgb(156 163 175 / var(--tw-text-opacity));
 }
 
+.text-text {
+  color: var(--text);
+}
+
 .shadow {
   --tw-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
   --tw-shadow-colored: 0 1px 3px 0 var(--tw-shadow-color), 0 1px 2px -1px var(--tw-shadow-color);
-  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-}
-
-.shadow-md {
-  --tw-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-  --tw-shadow-colored: 0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
@@ -721,9 +702,14 @@ video {
   --elem: hsl(0, 0%, 100%);
   --text: hsl(200, 15%, 8%);
   --input-color: hsl(0, 0%, 52%);
-  --dark-bg: hsl(207, 26%, 17%);
-  --dark-elem: hsl(209, 23%, 22%);
-  --dark-text: hsl(0, 0%, 100%);
+  --hover: hsl(0, 0%, 95%);
+}
+
+[data-theme="dark"] {
+  --bg: hsl(207, 26%, 17%);
+  --elem: hsl(209, 23%, 22%);
+  --text: hsl(0, 0%, 100%);
+  --hover: hsl(209, 23%, 25%);
 }
 
 * {
@@ -738,9 +724,8 @@ video {
   margin-bottom: 2.5rem;
 }
 
-.hover\:bg-gray-100:hover {
-  --tw-bg-opacity: 1;
-  background-color: rgb(243 244 246 / var(--tw-bg-opacity));
+.hover\:bg-hover:hover {
+  background-color: var(--hover);
 }
 
 .focus\:outline-none:focus {
