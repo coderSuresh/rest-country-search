@@ -1,5 +1,5 @@
 const detailsContainer = document.querySelector(".country--details")
-const countryName = location.href.includes("?country=") ? location.href.split("?country=")[1].replace(/%20/g, " ") : ""
+const countryName = location.href.includes("?country=") ? location.href.split("?country=")[1].replace(/-/g, " ") : ""
 //replace %20 with space in country name globally (g) in the string
 
 const renderCountryDetails = () => {
@@ -15,11 +15,11 @@ const renderCountryDetails = () => {
 
                         const languages = data.languages.map((language) => language.name).join(", ")
                         const currencies = data.currencies.map((currency) => currency.name).join(", ")
-                        const borders = data.borders.map((border) => {
+                        const borders = data.borders ? data.borders.map((border) => {
                             return `
                                     <p class="w-fit bg-elem px-4 rounded flex-grow text-center">${border}</p>
                                 `
-                        }).join("")
+                        }).join("") : "No borders"
 
                         const countryDetails = template
                             .replace("{country}", data.name)
