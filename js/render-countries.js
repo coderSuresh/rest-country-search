@@ -6,6 +6,7 @@ const renderCountry = (country) => {
         .then((data) => {
             const countryCard = data
                 .replace("{country}", country.name)
+                .replace("{country-url}", country.name.replace(" ", "-").toLowerCase())
                 .replace("{population}", country.population)
                 .replace("{region}", country.region)
                 .replace("{capital}", country.capital)
