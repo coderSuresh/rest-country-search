@@ -1,5 +1,6 @@
 import { toggleDarkMode, setDarkMode, setLightMode } from "./dark-mode.js"
 import { getCountries } from "./render-countries.js"
+import { setFilterList } from "./set-filter-list.js"
 
 const filterDropDown = document.querySelector(".drop-down")
 const uiMode = localStorage.getItem("uiMode") ? localStorage.getItem("uiMode") : ""
@@ -21,3 +22,4 @@ document.addEventListener("click", (e) => {
 })
 
 getCountries()
+setFilterList()

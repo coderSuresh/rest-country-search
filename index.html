@@ -35,23 +35,15 @@
                 <input type="search" class="active:outline-none bg-elem focus:outline-none w-[calc(100%-2rem)] md:w-80"
                     placeholder="Search for a country...">
             </div>
-            <div class="filter relative bg-elem shadow w-fit sm:mt-10 mt-5 px-3 py-2 rounded">
-                <button class="filter-btn flex items-center">
-                    <p class="font-medium pointer-events-none">Filter by Region</p>
+            <div class="filter relative bg-elem shadow sm:mt-10 mt-5 px-3 py-2 rounded">
+                <button class="filter-btn w-36 flex items-center justify-between">
+                    <p class="font-medium pointer-events-none">Filter by region</p>
                     <i class="fas fa-chevron-down pointer-events-none ml-2 text-xs"></i>
                 </button>
 
                 <div class="drop-down rounded hidden">
                     <ul class="absolute bg-elem top-12 left-0 w-full bg-white shadow rounded">
-                        <a href="#" class="px-3 bg-elem block py-2 cursor-pointer hover:bg-hover">
-                            <li>Africa</li>
-                        </a>
-                        <a href="#" class="px-3 bg-elem block py-2 cursor-pointer hover:bg-hover">
-                            <li>America</li>
-                        </a>
-                        <a href="#" class="px-3 bg-elem block py-2 cursor-pointer hover:bg-hover">
-                            <li>Asia</li>
-                        </a>
+                       <!-- coming from js -->
                     </ul>
                 </div>
             </div>
