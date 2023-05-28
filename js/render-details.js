@@ -1,14 +1,13 @@
 const detailsContainer = document.querySelector(".country--details")
-const countryName = location.href.includes("?country=") ? location.href.split("?country=")[1].replace(/-/g, " ") : ""
-//replace %20 with space in country name globally (g) in the string
+const alpha2Code = location.href.includes("?country=") ? location.href.split("?country=")[1] : ""
 
 const renderCountryDetails = () => {
 
-    if (detailsContainer && countryName) {
+    if (detailsContainer && alpha2Code) {
         fetch("../data.json")
             .then((res) => res.json())
             .then((data) => {
-                data = data.filter((country) => country.name.toLowerCase() === countryName)[0]
+                data = data.filter((country) => country.alpha2Code.toLowerCase() === alpha2Code)[0]
                 fetch("../template-country-details.html")
                     .then((res) => res.text())
                     .then((template) => {
@@ -17,7 +16,7 @@ const renderCountryDetails = () => {
                         const currencies = data.currencies ? data.currencies.map((currency) => currency.name).join(", ") : "No currencies"
                         const borders = data.borders ? data.borders.map((border) => {
                             return `
-                                    <p class="w-fit bg-elem px-4 rounded flex-grow text-center">${border}</p>
+                                    <p class="w-fit bg-elem px-4 rounded text-center">${border}</p>
                                 `
                         }).join("") : "No borders"
 
