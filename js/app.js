@@ -1,6 +1,7 @@
 import { toggleDarkMode, setDarkMode, setLightMode } from "./dark-mode.js"
 import { getCountries } from "./render-countries.js"
 import { setFilterList } from "./set-filter-list.js"
+import { searchCountry } from "./search-country.js"
 
 const filterDropDown = document.querySelector(".drop-down")
 const uiMode = localStorage.getItem("uiMode") ? localStorage.getItem("uiMode") : ""
@@ -23,18 +24,4 @@ document.addEventListener("click", (e) => {
 
 getCountries()
 setFilterList()
-
-const searchCountry = () => {
-    const searchInput = document.querySelector(".search input")
-
-    document.addEventListener("keyup", (e) => {
-
-        if (searchInput.checkValidity()) {
-            if (e.key === "Enter") {
-                location.href = `?search=${searchInput.value}`
-            }
-        } else searchInput.reportValidity()
-    })
-}
-
 searchCountry()
