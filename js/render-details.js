@@ -13,8 +13,8 @@ const renderCountryDetails = () => {
                     .then((res) => res.text())
                     .then((template) => {
 
-                        const languages = data.languages.map((language) => language.name).join(", ")
-                        const currencies = data.currencies.map((currency) => currency.name).join(", ")
+                        const languages = data.languages ? data.languages.map((language) => language.name).join(", ") : "No languages"
+                        const currencies = data.currencies ? data.currencies.map((currency) => currency.name).join(", ") : "No currencies"
                         const borders = data.borders ? data.borders.map((border) => {
                             return `
                                     <p class="w-fit bg-elem px-4 rounded flex-grow text-center">${border}</p>
