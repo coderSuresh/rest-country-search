@@ -29,7 +29,7 @@ const getCountries = async () => {
                     renderCountry(country)
                 }
             } else if (filterSearch) {
-                if (country.name.toLowerCase() == filterSearch) {
+                if (country.name.toLowerCase().includes(filterSearch)) {
                     renderCountry(country)
                 }
             } else {
