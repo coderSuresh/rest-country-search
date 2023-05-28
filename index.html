@@ -20,7 +20,9 @@
 <body class="bg-bg text-text">
 
     <header class="flex justify-between bg-elem w-full md:px-20 px-5 py-5 shadow">
-        <h1 class="text-lg sm:text-xl font-bold">Where in the world?</h1>
+        <a href="/">
+            <h1 class="text-lg sm:text-xl font-bold">Where in the world?</h1>
+        </a>
         <button class="toggle-ui-mode flex items-center">
             <i class="far fa-moon mr-2 pointer-events-none"></i>
             <p class="font-semibold pointer-events-none">Dark Mode</p>
@@ -32,8 +34,9 @@
             class="search--filter flex flex-col sm:flex-row sm:items-center sm:justify-between items-start justify-start">
             <div class="search shadow sm:w-fit bg-elem w-full mt-10 px-3 py-2 rounded">
                 <i class="fas fa-search mr-2 text-gray-400"></i>
-                <input type="search" class="active:outline-none bg-elem focus:outline-none w-[calc(100%-2rem)] md:w-80"
-                    placeholder="Search for a country...">
+                <input type="search"
+                    class="search active:outline-none bg-elem focus:outline-none w-[calc(100%-2rem)] md:w-80"
+                    placeholder="Search for a country..." required>
             </div>
             <div class="filter relative bg-elem shadow sm:mt-10 mt-5 px-3 py-2 rounded">
                 <button class="filter-btn w-36 flex items-center justify-between">
@@ -43,7 +46,7 @@
 
                 <div class="drop-down rounded hidden">
                     <ul class="absolute bg-elem top-12 left-0 w-full bg-white shadow rounded">
-                       <!-- coming from js -->
+                        <!-- coming from js -->
                     </ul>
                 </div>
             </div>
@@ -51,7 +54,7 @@
 
         <div class="country--list grid gap-3 md:gap-7 last:mb-10 mt-10">
             <!-- coming from js -->
-            
+
         </div>
 
     </main>

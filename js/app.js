@@ -23,3 +23,18 @@ document.addEventListener("click", (e) => {
 
 getCountries()
 setFilterList()
+
+const searchCountry = () => {
+    const searchInput = document.querySelector(".search input")
+
+    document.addEventListener("keyup", (e) => {
+
+        if (searchInput.checkValidity()) {
+            if (e.key === "Enter") {
+                location.href = `?search=${searchInput.value}`
+            }
+        } else searchInput.reportValidity()
+    })
+}
+
+searchCountry()

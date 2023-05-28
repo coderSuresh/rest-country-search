@@ -19,10 +19,15 @@ const getCountries = async () => {
     const data = await res.json()
 
     const filterRegion = location.href.includes("region") ? location.href.split("region=")[1].replace("-", " ") : ""
+    const filterSearch = location.href.includes("search") ? location.href.split("search=")[1].replace("-", " ") : ""
 
     data.map((country) => {
         if (filterRegion) {
             if (country.region.toLowerCase() == filterRegion) {
+                renderCountry(country)
+            }
+        } else if (filterSearch) {
+            if (country.name.toLowerCase() == filterSearch) {
                 renderCountry(country)
             }
         } else {
