@@ -19,8 +19,8 @@ const getCountries = async () => {
     const res = await fetch("../data.json")
     const data = await res.json()
 
-    const filterRegion = location.href.includes("region") ? location.href.split("region=")[1].replace("-", " ") : ""
-    const filterSearch = location.href.includes("search") ? location.href.split("search=")[1].replace("-", " ") : ""
+    const filterRegion = location.href.includes("?region") ? location.href.split("region=")[1].replace("-", " ") : ""
+    const filterSearch = location.href.includes("?search") ? location.href.split("search=")[1].replace("-", " ") : ""
 
     if (countryContainer) {
         data.map((country) => {
