@@ -1,0 +1,25 @@
+<div class="left">
+    <img src={flag} alt="flag" class="w-full max-h-[25rem] rounded shadow">
+</div>
+
+<section class="details">
+    <h2 class="text-2xl font-bold">{country}</h2>
+    <div class="grid grid-cols-2 gap-10 mt-5">
+        <div class="left">
+            <p><span class="font-semibold">Native Name:</span> {native name}</p>
+            <p><span class="font-semibold">Population:</span> {population}</p>
+            <p><span class="font-semibold">Region:</span> {region}</p>
+            <p><span class="font-semibold">Sub Region:</span> {sub region}</p>
+            <p><span class="font-semibold">Capital:</span> {capital}</p>
+        </div>
+        <div class="right">
+            <p><span class="font-semibold">Top Level Domain:</span> {tld}</p>
+            <p><span class="font-semibold">Currencies:</span> {currencies}</p>
+            <p><span class="font-semibold">Languages:</span> {languages}</p>
+        </div>
+    </div>
+    <div class=" my-10 w-full flex flex-wrap gap-3">
+        <p class="font-semibold">Border Countries:</p>
+        {borders}
+    </div>
+</section>

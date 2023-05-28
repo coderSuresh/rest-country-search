@@ -21,19 +21,21 @@ const getCountries = async () => {
     const filterRegion = location.href.includes("region") ? location.href.split("region=")[1].replace("-", " ") : ""
     const filterSearch = location.href.includes("search") ? location.href.split("search=")[1].replace("-", " ") : ""
 
-    data.map((country) => {
-        if (filterRegion) {
-            if (country.region.toLowerCase() == filterRegion) {
+    if (countryContainer) {
+        data.map((country) => {
+            if (filterRegion) {
+                if (country.region.toLowerCase() == filterRegion) {
+                    renderCountry(country)
+                }
+            } else if (filterSearch) {
+                if (country.name.toLowerCase() == filterSearch) {
+                    renderCountry(country)
+                }
+            } else {
                 renderCountry(country)
             }
-        } else if (filterSearch) {
-            if (country.name.toLowerCase() == filterSearch) {
-                renderCountry(country)
-            }
-        } else {
-            renderCountry(country)
-        }
-    })
+        })
+    }
 }
 
 export { getCountries }
