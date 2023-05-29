@@ -19,7 +19,7 @@ window.onload = () => {
     const isFiltered = location.href.includes("?region")
     if (isFiltered) {
         const filterRegion = location.href.includes("?region") ? location.href.split("region=")[1].replace("-", " ") : ""
-        document.querySelector(".filter button p").textContent = filterRegion.split(" ")
+        document.querySelector(".filter button span").textContent = filterRegion.split(" ")
             .map((word) => word.charAt(0).toUpperCase() + word.slice(1)).join(" ")
     }
 }

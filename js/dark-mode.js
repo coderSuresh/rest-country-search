@@ -2,6 +2,7 @@ const darkModeBtnText = document.querySelector(".toggle-ui-mode span")
 const darkModeIcon = document.querySelector(".toggle-ui-mode i")
 
 const setDarkMode = () => {
+    console.log(darkModeBtnText)
     darkModeBtnText.textContent = "Light Mode"
     darkModeIcon.classList.remove("fa-moon")
     darkModeIcon.classList.add("fa-sun")

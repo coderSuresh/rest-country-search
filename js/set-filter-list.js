@@ -1,5 +1,5 @@
 const filterList = document.querySelector(".drop-down ul")
-const filterBtnText = document.querySelector(".filter button span")
+const filterBtnText = document.querySelector(".filter-btn span")
 
 const setFilterList = () => {
     if (filterList && filterBtnText) {
