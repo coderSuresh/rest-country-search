@@ -1,0 +1,16 @@
+{
+    "name": "Countries",
+    "short_name": "Countries",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#fff",
+    "theme_color": "#F46E16",
+    "icons": [
+        {
+            "src": "./images/ic_globe.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ],
+    "orientation": "portrait-primary"
+}
