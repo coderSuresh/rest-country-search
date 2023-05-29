@@ -15,8 +15,8 @@ const renderCountryDetails = () => {
                         const currencies = data.currencies ? data.currencies.map((currency) => currency.name).join(", ") : "No currencies"
                         const borders = data.borders ? data.borders.map((border) => {
                             return `
-                                <a href="?country=${border.toLowerCase()}">
-                                    <p class="w-fit bg-elem px-4 rounded text-center">${border}</p>
+                                <a href="?country=${border.toLowerCase()}" class="border-tag bg-elem">
+                                    <p>${border}</p>
                                 </a>
                                 `
                         }).join("") : "No borders"
