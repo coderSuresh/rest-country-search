@@ -1,7 +1,10 @@
+import { showLoading, hideLoading } from "./loader.js"
+
 const detailsContainer = document.querySelector(".country--details")
 const alpha3Code = location.href.includes("?country=") ? location.href.split("?country=")[1] : ""
 
 const renderCountryDetails = () => {
+    showLoading()
     if (detailsContainer && alpha3Code) {
         fetch("../data.json")
             .then((res) => res.json())
@@ -38,6 +41,7 @@ const renderCountryDetails = () => {
                     })
             })
     }
+    hideLoading()
 }
 
 export { renderCountryDetails }

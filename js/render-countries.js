@@ -1,3 +1,5 @@
+import { showLoading, hideLoading } from "./loading.js"
+
 const countryContainer = document.querySelector(".country--list")
 const renderedCountries = {}
 
@@ -55,25 +57,6 @@ const getCountries = async () => {
 
     batch++
     hideLoading()
-}
-
-const showLoading = () => {
-    if (countryContainer) {
-        countryContainer.innerHTML += `
-            <div class="loading">
-                <div class="loading--icon"></div>
-            </div>
-        `
-    }
-}
-
-const hideLoading = () => {
-    if (countryContainer) {
-        const loading = document.querySelector(".loading")
-        if (loading) {
-            loading.remove()
-        }
-    }
 }
 
 export { getCountries }
