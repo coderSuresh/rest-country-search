@@ -1,13 +1,12 @@
 const detailsContainer = document.querySelector(".country--details")
-const alpha2Code = location.href.includes("?country=") ? location.href.split("?country=")[1] : ""
+const alpha3Code = location.href.includes("?country=") ? location.href.split("?country=")[1] : ""
 
 const renderCountryDetails = () => {
-
-    if (detailsContainer && alpha2Code) {
+    if (detailsContainer && alpha3Code) {
         fetch("../data.json")
             .then((res) => res.json())
             .then((data) => {
-                data = data.filter((country) => country.alpha2Code.toLowerCase() === alpha2Code)[0]
+                data = data.filter((country) => country.alpha3Code.toLowerCase() === alpha3Code)[0]
                 fetch("../template-country-details.html")
                     .then((res) => res.text())
                     .then((template) => {
@@ -16,7 +15,9 @@ const renderCountryDetails = () => {
                         const currencies = data.currencies ? data.currencies.map((currency) => currency.name).join(", ") : "No currencies"
                         const borders = data.borders ? data.borders.map((border) => {
                             return `
+                                <a href="?country=${border.toLowerCase()}">
                                     <p class="w-fit bg-elem px-4 rounded text-center">${border}</p>
+                                </a>
                                 `
                         }).join("") : "No borders"
 
