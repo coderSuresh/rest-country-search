@@ -12,7 +12,7 @@ const renderCountry = (country) => {
                 .replace("{region}", country.region)
                 .replace("{capital}", country.capital)
                 .replace("{flag}", country.flag)
-           
+
             if (!renderedCountries[country.alpha2Code]) {
                 countryContainer.innerHTML += countryCard
                 renderedCountries[country.alpha2Code] = true
@@ -23,6 +23,8 @@ const renderCountry = (country) => {
 let batch = 0
 
 const getCountries = async () => {
+    showLoading()
+
     const res = await fetch("../data.json")
     const data = await res.json()
 
@@ -33,7 +35,7 @@ const getCountries = async () => {
         const filterSearch = location.href.includes("?search")
             ? location.href.split("search=")[1].replace("-", " ")
             : ""
-        
+
         data.forEach((country, index) => {
             if (filterRegion) {
                 if (country.region.toLowerCase() === filterRegion) {
@@ -52,6 +54,26 @@ const getCountries = async () => {
     }
 
     batch++
+    hideLoading()
+}
+
+const showLoading = () => {
+    if (countryContainer) {
+        countryContainer.innerHTML += `
+            <div class="loading">
+                <div class="loading--icon"></div>
+            </div>
+        `
+    }
+}
+
+const hideLoading = () => {
+    if (countryContainer) {
+        const loading = document.querySelector(".loading")
+        if (loading) {
+            loading.remove()
+        }
+    }
 }
 
 export { getCountries }
