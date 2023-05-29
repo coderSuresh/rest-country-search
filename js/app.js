@@ -5,7 +5,14 @@ import { searchCountry } from "./search-country.js"
 import { renderCountryDetails } from "./render-details.js"
 
 const filterDropDown = document.querySelector(".drop-down")
+const goBack = document.querySelector(".go-back")
 const uiMode = localStorage.getItem("uiMode") ? localStorage.getItem("uiMode") : ""
+
+if (goBack) {
+    goBack.addEventListener("click", () => {
+        history.back()
+    })
+}
 
 window.onload = () => {
     uiMode === "dark" ? setDarkMode() : setLightMode()
