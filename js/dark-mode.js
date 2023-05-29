@@ -1,4 +1,4 @@
-const darkModeBtnText = document.querySelector(".toggle-ui-mode p")
+const darkModeBtnText = document.querySelector(".toggle-ui-mode span")
 const darkModeIcon = document.querySelector(".toggle-ui-mode i")
 
 const setDarkMode = () => {
