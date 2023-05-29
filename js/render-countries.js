@@ -1,4 +1,5 @@
 const countryContainer = document.querySelector(".country--list")
+const renderedCountries = {}
 
 const renderCountry = (country) => {
     fetch("../template-country-card.html")
@@ -11,21 +12,31 @@ const renderCountry = (country) => {
                 .replace("{region}", country.region)
                 .replace("{capital}", country.capital)
                 .replace("{flag}", country.flag)
-            countryContainer.innerHTML += countryCard
+           
+            if (!renderedCountries[country.alpha2Code]) {
+                countryContainer.innerHTML += countryCard
+                renderedCountries[country.alpha2Code] = true
+            }
         })
 }
+
+let batch = 0
 
 const getCountries = async () => {
     const res = await fetch("../data.json")
     const data = await res.json()
 
-    const filterRegion = location.href.includes("?region") ? location.href.split("region=")[1].replace("-", " ") : ""
-    const filterSearch = location.href.includes("?search") ? location.href.split("search=")[1].replace("-", " ") : ""
-
     if (countryContainer) {
-        data.map((country) => {
+        const filterRegion = location.href.includes("?region")
+            ? location.href.split("region=")[1].replace("-", " ")
+            : ""
+        const filterSearch = location.href.includes("?search")
+            ? location.href.split("search=")[1].replace("-", " ")
+            : ""
+        
+        data.forEach((country, index) => {
             if (filterRegion) {
-                if (country.region.toLowerCase() == filterRegion) {
+                if (country.region.toLowerCase() === filterRegion) {
                     renderCountry(country)
                 }
             } else if (filterSearch) {
@@ -33,10 +44,14 @@ const getCountries = async () => {
                     renderCountry(country)
                 }
             } else {
-                renderCountry(country)
+                if (index >= batch * 20 && index < batch * 20 + 20) {
+                    renderCountry(country)
+                }
             }
         })
     }
+
+    batch++
 }
 
 export { getCountries }

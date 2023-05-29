@@ -38,6 +38,22 @@ document.addEventListener("click", (e) => {
     }
 })
 
+const handleScroll = () => {
+    const countryContainer = document.querySelector(".country--list")
+    const windowHeight = window.innerHeight
+    const scrollHeight = window.scrollY
+    const countryContainerHeight = countryContainer.offsetHeight
+    const countryContainerTop = countryContainer.offsetTop
+
+    if (countryContainer) {
+        if (scrollHeight + windowHeight >= countryContainerHeight + countryContainerTop) {
+            getCountries()
+        }
+    }
+}
+
+window.addEventListener("scroll", handleScroll)
+
 getCountries()
 setFilterList()
 searchCountry()
