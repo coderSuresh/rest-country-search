@@ -1,4 +1,4 @@
-import { showLoading, hideLoading } from "./loading.js"
+import { showLoading, hideLoading } from "./loader.js"
 
 const countryContainer = document.querySelector(".country--list")
 const renderedCountries = {}

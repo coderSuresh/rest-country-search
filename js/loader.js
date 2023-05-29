@@ -1,6 +1,7 @@
+const container = document.querySelector(".main-container")
 const showLoading = () => {
-    if (countryContainer) {
-        countryContainer.innerHTML += `
+    if (container) {
+        container.innerHTML += `
             <div class="loading">
                 <div class="loading--icon"></div>
             </div>
@@ -9,7 +10,7 @@ const showLoading = () => {
 }
 
 const hideLoading = () => {
-    if (countryContainer) {
+    if (container) {
         const loading = document.querySelector(".loading")
         if (loading) {
             loading.remove()
