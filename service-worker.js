@@ -1,4 +1,4 @@
-const cacheName = "cache-v1";
+const cacheName = "cache-v1"
 
 const assetsToCache = [
     "/",
@@ -11,16 +11,16 @@ const assetsToCache = [
     "/styles/style.css",
     "/js/app.js",
     "/images/ic_globe.png"
-];
+]
 
 // Install event: Cache assets
 self.addEventListener("install", e => {
     e.waitUntil(
         caches.open(cacheName).then(cache => {
-            return cache.addAll(assetsToCache);
+            return cache.addAll(assetsToCache)
         })
-    );
-});
+    )
+})
 
 // Activate event: Clean up old caches
 self.addEventListener("activate", event => {
@@ -29,20 +29,20 @@ self.addEventListener("activate", event => {
             return Promise.all(
                 cacheNames.filter(name => {
                     // Remove outdated caches
-                    return name !== cacheName;
+                    return name !== cacheName
                 }).map(name => {
-                    return caches.delete(name);
+                    return caches.delete(name)
                 })
-            );
+            )
         })
-    );
-});
+    )
+})
 
 // Fetch event: Serve cached assets when offline
 self.addEventListener("fetch", event => {
     event.respondWith(
         caches.match(event.request).then(response => {
-            return response || fetch(event.request);
+            return response || fetch(event.request)
         })
-    );
-});
+    )
+})
