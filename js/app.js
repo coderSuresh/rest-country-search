@@ -9,6 +9,11 @@ const uiMode = localStorage.getItem("uiMode") ? localStorage.getItem("uiMode") :
 
 window.onload = () => {
     uiMode === "dark" ? setDarkMode() : setLightMode()
+    const isFiltered = location.href.includes("?region") 
+    if (isFiltered) {
+        const filterRegion = location.href.includes("?region") ? location.href.split("region=")[1].replace("-", " ") : ""
+        document.querySelector(".filter button p").textContent = filterRegion
+    }
 }
 
 document.addEventListener("click", (e) => {
