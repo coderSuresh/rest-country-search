@@ -17,7 +17,7 @@ const handleKeyUp = (e) => {
 }
 
 const performSearch = () => {
-    location.href = `?search=${searchInput.value.trim()}`
+    location.href = `?search=${searchInput.value.trim().toLowerCase()}`
 }
 
 export { searchCountry }

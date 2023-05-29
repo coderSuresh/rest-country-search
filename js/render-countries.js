@@ -38,21 +38,45 @@ const getCountries = async () => {
             ? location.href.split("search=")[1].replace("-", " ")
             : ""
 
+        let countryFound = false
+
         data.forEach((country, index) => {
             if (filterRegion) {
                 if (country.region.toLowerCase() === filterRegion) {
                     renderCountry(country)
+                    countryFound = true
                 }
             } else if (filterSearch) {
-                if (country.name.toLowerCase().includes(filterSearch)) {
-                    renderCountry(country)
+                countryContainer.innerHTML = ""
+                if (country.capital) {
+                    if (country.name.toLowerCase().includes(filterSearch) ||
+                        country.capital.toLowerCase().includes(filterSearch) ||
+                        country.region.toLowerCase().includes(filterSearch) ||
+                        country.subregion.toLowerCase().includes(filterSearch) ||
+                        country.alpha3Code.toLowerCase().includes(filterSearch) ||
+                        country.alpha2Code.toLowerCase().includes(filterSearch) ||
+                        country.demonym.toLowerCase().includes(filterSearch) ||
+                        country.nativeName.toLowerCase().includes(filterSearch)
+                    ) {
+                        renderCountry(country)
+                        countryFound = true
+                    }
                 }
             } else {
                 if (index >= batch * 20 && index < batch * 20 + 20) {
                     renderCountry(country)
+                    countryFound = true
                 }
             }
         })
+
+        if (filterSearch && !countryFound) {
+            countryContainer.innerHTML = `
+                <div class="country--not-found">
+                    <h2 class="font-bold">Country not found</h2>
+                </div>
+            `
+        }
     }
 
     batch++
