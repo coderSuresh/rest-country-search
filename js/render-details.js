@@ -10,7 +10,7 @@ const renderCountryDetails = () => {
             .then((res) => res.json())
             .then((data) => {
                 data = data.filter((country) => country.alpha3Code.toLowerCase() === alpha3Code)[0]
-                fetch("../template-country-details.html")
+                fetch("../templates/template-country-details.html")
                     .then((res) => res.text())
                     .then((template) => {
 

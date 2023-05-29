@@ -4,7 +4,7 @@ const countryContainer = document.querySelector(".country--list")
 const renderedCountries = {}
 
 const renderCountry = (country) => {
-    fetch("../template-country-card.html")
+    fetch("../templates/template-country-card.html")
         .then((res) => res.text())
         .then((data) => {
             const countryCard = data

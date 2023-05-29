@@ -10,7 +10,7 @@ const setFilterList = () => {
                 const uniqueRegions = [...new Set(regions)]
 
                 uniqueRegions.map((region) => {
-                    fetch("../template-region-list.html")
+                    fetch("../templates/template-region-list.html")
                         .then((res) => res.text())
                         .then((data) => {
                             const regionListHtml = data
